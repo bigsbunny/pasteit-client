@@ -34,9 +34,10 @@ const HomePage = (props) => {
                     <button type='submit' className='px-4 py-2 bg-green-400 rounded-md'>Generate Link</button>
                 </form>
                 {generated && (
-                    <div className='flex justify-center items-center'>
+                    <div className='flex justify-center items-center gap-x-4'>
                         <p>Here's your generated link to share your paste: </p>
-                        <input className='px-4 py-2 bg-gray-300' type="text" value={data.tinyURL} disabled></input>
+                        {/* <input className='px-4 py-2 bg-gray-300 w-2/6' type="text" value={data.tinyURL} disabled></input> */}
+                        <a className='px-4 py-2 bg-gray-300 w-2/6' href={data.tinyURL}>{data.tinyURL}</a>
                     </div>
                 )}
             </div>

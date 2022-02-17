@@ -12,7 +12,7 @@ const HomePage = (props) => {
         const dataObject = {
             data: text
         }
-        axios.post('http://localhost:3001/', dataObject).then((res) => {
+        axios.post('https://young-eyrie-03918.herokuapp.com/', dataObject).then((res) => {
             let dataObj = res.data;
             setData(dataObj);
             setGenerated(true);

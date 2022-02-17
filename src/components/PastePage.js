@@ -16,7 +16,7 @@ const PastePage = (props) => {
     }
 
     useEffect(() => {
-        axios.get('http://localhost:3001/' + pasteId).then((response) => {
+        axios.get('https://young-eyrie-03918.herokuapp.com/' + pasteId).then((response) => {
             setDbData(response.data[0]);
             setFetched(true);
         });

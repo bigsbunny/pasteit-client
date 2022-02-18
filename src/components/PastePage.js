@@ -9,7 +9,7 @@ const PasteBox = (props) => {
             <h1 className='text-2xl bold pb-4'>Here's your data from PasteIt</h1>
             <p>{`Your paste expires on ${props.data.validity}`}</p>
         </div>
-        <textarea className='p-6 border-2 border-gray-400' rows={20} cols={100} value={dbData.textData} disabled></textarea>
+        <textarea className='p-6 border-2 border-gray-400' rows={20} cols={100} value={props.data.textData} disabled></textarea>
     </div>)
 };
 

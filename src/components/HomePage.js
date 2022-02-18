@@ -6,11 +6,15 @@ const HomePage = (props) => {
     const [text, setText] = useState("");
     const [generated, setGenerated] = useState(false);
     const [data, setData] = useState();
+    const [encrypt, setEncrypt] = useState(false);
+    const [key, setKey] = useState("");
 
     const newGenerate = (e) => {
         e.preventDefault();
         const dataObject = {
-            data: text
+            data: text,
+            encrypt: encrypt,
+            encryptKey: key
         }
         axios.post('https://young-eyrie-03918.herokuapp.com/', dataObject).then((res) => {
             let dataObj = res.data;
@@ -24,6 +28,19 @@ const HomePage = (props) => {
         setText(e.target.value);
     }
 
+    const handleEncrypt = (e) => {
+        if(e.target.checked)
+            setEncrypt(true);
+        else
+            setEncrypt(false);
+
+    }
+
+    const handleEncryptKey = (e) => {
+        console.log(e.target.value);
+        setKey(e.target.value);
+    }
+
     return (
         <div>
             <div className='text-center'>
@@ -33,6 +50,11 @@ const HomePage = (props) => {
                     <textarea id="inputData" name="inputData" onChange={textDataChange} className='p-6 border-2 border-gray-400' rows={20} cols={100} placeholder="Enter your text/code here"></textarea>
                     <button type='submit' className='px-4 py-2 bg-green-400 rounded-md'>Generate Link</button>
                 </form>
+                <div className="flex justify-center items-center gap-x-4 mt-4">
+                    <label htmlFor="toEncrypt">Encrypt data?</label>
+                    <input id="toEncrypt" type="checkbox" onChange={handleEncrypt}></input>
+                    {encrypt && <input type="text" className="px-4 py-2" onChange={handleEncryptKey} placeholder="Enter encryption key"></input>}
+                </div>
                 {generated && (
                     <div className='flex justify-center items-center gap-x-4'>
                         <p>Here's your generated link to share your paste: </p>

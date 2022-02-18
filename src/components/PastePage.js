@@ -3,6 +3,24 @@ import { parse } from 'postcss';
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 
+const PasteBox = (props) => {
+    return (<div>
+        <div className='text-center'>
+            <h1 className='text-2xl bold pb-4'>Here's your data from PasteIt</h1>
+            <p>{`Your paste expires on ${props.dbData.validity}`}</p>
+        </div>
+        <textarea className='p-6 border-2 border-gray-400' rows={20} cols={100} value={dbData.textData} disabled></textarea>
+    </div>)
+};
+
+const EncrytKeyBox = (props) => {
+    return (
+        <form name="encryptKey" onSubmit={handleSubmit} className='flex flex-col justify-center items-center gap-y-6'>
+            <input type="text" placeholder="Enter encryption key"></input>
+            <button type="submit" className='px-4 py-2 bg-green-400 rounded-md'>Decrypt</button>
+        </form>
+    )
+}
 
 const PastePage = (props) => {
     const { pasteId } = useParams();
@@ -33,18 +51,12 @@ const PastePage = (props) => {
     //     // setFetched(true);
     // }, [dbData])
 
-    console.log(dbData);
+    // console.log(dbData);
 
     return (
         <div className='min-h-screen flex justify-center items-center'>
-            {fetched && (
-                <div>
-                    <div className='text-center'>
-                        <h1 className='text-2xl bold pb-4'>Here's your data from PasteIt</h1>
-                        <p>{`Your paste expires on ${dbData.validity}`}</p>
-                    </div>
-                    <textarea className='p-6 border-2 border-gray-400' rows={20} cols={100} value={dbData.textData} disabled></textarea>
-                </div>)}
+            {fetched && (!dbData.toEncrypt ?
+                <PasteBox data={dbData}/> : <EncrytKeyBox />)}
         </div>
     )
 }

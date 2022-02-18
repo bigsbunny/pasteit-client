@@ -19,7 +19,7 @@ const EncrytKeyBox = (props) => {
     }
     return (
         <form name="encryptKey" onSubmit={handleSubmit} className='flex flex-col justify-center items-center gap-y-6'>
-            <input type="text" placeholder="Enter encryption key"></input>
+            <input type="text" placeholder="Enter encryption key" className='px-4 py-2 border border-gray-400 w-2/6'></input>
             <button type="submit" className='px-4 py-2 bg-green-400 rounded-md'>Decrypt</button>
         </form>
     )

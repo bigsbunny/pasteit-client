@@ -14,6 +14,9 @@ const PasteBox = (props) => {
 };
 
 const EncrytKeyBox = (props) => {
+    const handleSubmit = (e) => {
+        console.log(e.target.value);
+    }
     return (
         <form name="encryptKey" onSubmit={handleSubmit} className='flex flex-col justify-center items-center gap-y-6'>
             <input type="text" placeholder="Enter encryption key"></input>

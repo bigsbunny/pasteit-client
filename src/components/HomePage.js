@@ -45,26 +45,27 @@ const HomePage = (props) => {
     }
 
     return (
-        <div>
-            <div className='text-center'>
-                <h1 className='text-2xl'>PasteIt</h1>
-                <p className='text-lg'>Input your text/code in the field below and generate a link to share it with others.</p>
+        <div className="bg-gray-300 min-h-screen">
+            <div className='text-center px-4 pt-4 relative'>
+                <h1 className='text-5xl underline mb-4'>PasteIt</h1>
+                <p className='text-lg text-gray-700 mb-6'>Input your text/code in the field below and generate a link to quickly share it with others.</p>
                 <form name="data" onSubmit={newGenerate} className='flex flex-col justify-center items-center gap-y-6'>
-                    <textarea id="inputData" name="inputData" onChange={textDataChange} className='p-6 border-2 border-gray-400' rows={20} cols={100} placeholder="Enter your text/code here"></textarea>
-                    <button type='submit' className='px-4 py-2 bg-green-400 rounded-md'>Generate Link</button>
+                    <textarea id="inputData" name="inputData" onChange={textDataChange} className='p-6 border-2 border-gray-400' rows={12} cols={75} placeholder="Enter your text/code here"></textarea>
+                    <button type='submit' className='px-4 py-2 bg-green-400 rounded-md text-white'>Generate Link</button>
                 </form>
-                <div className="flex justify-center items-center gap-x-4 mt-4">
+                <div className="flex justify-center items-center gap-x-4 my-4">
                     <label htmlFor="toEncrypt">Encrypt data?</label>
                     <input id="toEncrypt" type="checkbox" onChange={handleEncrypt}></input>
-                    {encrypt && <input type="text" className="px-4 py-2" onChange={handleEncryptKey} placeholder="Enter encryption key"></input>}
+                    {encrypt && <input type="text" className="px-4 py-2 rounded-md border border-black" onChange={handleEncryptKey} placeholder="Enter encryption key"></input>}
                 </div>
                 {generated && (
                     <div className='flex justify-center items-center gap-x-4'>
                         <p>Here's your generated link to share your paste: </p>
                         {/* <input className='px-4 py-2 bg-gray-300 w-2/6' type="text" value={data.tinyURL} disabled></input> */}
-                        <a className='px-4 py-2 bg-gray-300 w-2/6' href={data.tinyURL}>{data.tinyURL}</a>
+                        <a className='px-4 py-2 bg-white w-2/6 rounded-md border border-gray-400' href={data.tinyURL}>{data.tinyURL}</a>
                     </div>
                 )}
+                <button className='px-4 py-2 bg-blue-400 text-white rounded-md absolute top-5 right-10'><a href={`/pastes`}> ALL YOUR PASTES</a></button>
             </div>
         </div>
     )

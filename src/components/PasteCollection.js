@@ -64,7 +64,7 @@ const PasteCollection = (props) => {
 
     return (
         <div className="text-center mt-4">
-            <h1 className="text-2xl font-bold mb-8">Here's a collection of all working pastes that you have created.</h1>
+            <h1 className="text-2xl font-bold mb-8">Here's a collection of all working pastes that you have created and are working.</h1>
             <div className="flex flex-col gap-y-2 min-h-screen justify-center items-center mx-auto">
                 <table>
                     <thead>

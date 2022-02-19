@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const server = process.env.REACT_APP_SERVER_URL;
+
 const HomePage = (props) => {
     
     const [text, setText] = useState("");
@@ -10,13 +12,14 @@ const HomePage = (props) => {
     const [key, setKey] = useState("");
 
     const newGenerate = (e) => {
+        console.log(server);
         e.preventDefault();
         const dataObject = {
             data: text,
             encrypt: encrypt,
             encryptKey: key
         }
-        axios.post('https://young-eyrie-03918.herokuapp.com/', dataObject).then((res) => {
+        axios.post(server, dataObject).then((res) => {
             let dataObj = res.data;
             setData(dataObj);
             setGenerated(true);

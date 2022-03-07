@@ -3,18 +3,11 @@
 ![UI1](./assets/ui1.png)
 
 ---
-PasteIt is a project created for polynomial.ai's internship drive of 2022. This project is submitted by -
-
-- Name: Bighnesh Sahoo
-- College ID: B319013
-- College: International Institute of Information Technology, Bhubaneswar
-
----
 ## Project Structure
 PasteIt's project files are divided into two repositories which follow a client-server architecture -
 
-- Frontend - [polynomial-assignment-client](https://github.com/bigsbunny/polynomial-assignment-client)
-- Backend (REST API) - [polynomial-assignment-api](https://github.com/bigsbunny/polynomial-assignment-api)
+- Frontend - [pasteit-client](https://github.com/bigsbunny/pasteit-client)
+- Backend (REST API) - [pasteit-api](https://github.com/bigsbunny/pasteit-api)
 
 ---
 
@@ -32,11 +25,11 @@ PasteIt's project files are divided into two repositories which follow a client-
 
 >Clone the repository
 ```
-git clone git@github.com:bigsbunny/polynomial-assignment-client.git
+git clone git@github.com:bigsbunny/pasteit-client.git
 ```
 >Change directoty
 ```
-cd polynomial-assignment-client
+cd pasteit-client
 ```
 >Setup React
 ```
